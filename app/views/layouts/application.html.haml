@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title TestApp
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #outer
+      #header
+      #main-menu
+        .main-menu-item
+          Others
+        .main-menu-item
+          Contact
+        .main-menu-item
+          Profile
+        .main-menu-item
+          Home
+      #center
+        = yield
+      #footer

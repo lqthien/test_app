@@ -18,3 +18,4 @@
 /public
 *coverage*
 .idea/
+config/database.yml
