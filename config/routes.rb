@@ -1,5 +1,8 @@
 TestApp::Application.routes.draw do
   match ':controller(/:action(/:id))'
+  controller :dashboard do
+    post '/dashboard/switch' => :switch
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

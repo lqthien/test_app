@@ -9,14 +9,30 @@
     #outer
       #header
       #main-menu
-        .main-menu-item
-          Others
-        .main-menu-item
+        .main-menu-item{:onclick => "switchPane('blog');"}
+          Blog
+        .main-menu-item{:onclick => "switchPane('contact');"}
           Contact
-        .main-menu-item
+        .main-menu-item{:onclick => "switchPane('profile');"}
           Profile
-        .main-menu-item
+        .main-menu-item{:onclick => "switchPane('home');"}
           Home
       #center
         = yield
       #footer
+
+:javascript
+  function switchPane(item) {
+    $('#center').html('<div><img src="/assets/loading.gif"/></div>')
+    $.ajax({
+      url: "/dashboard/switch",
+      type: "post",
+      data: {
+        frame: item
+      }
+    });
+  }
+
+  $(document).ready(function() {
+
+  });
