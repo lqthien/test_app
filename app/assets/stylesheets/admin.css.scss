@@ -1,0 +1,44 @@
+.title_bar a.logout {
+  float: right;
+  margin-right: 15px;
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    color: #29407C;
+  }
+}
+
+.admin-button {
+  min-width: 22%;
+  min-height: 40px;
+  border: 3px #660000 solid;
+  border-radius: 5px;
+  float: left;
+  margin: 10px;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &:hover {
+    background: #660000;
+
+    .admin-button-title {
+      color: white;
+    }
+  }
+
+  img {
+    height: 40px;
+    float: left;
+  }
+
+  .admin-button-title {
+    float: left;
+    margin-top: 8px;
+    margin-left: 15px;
+    font-weight: bold;
+    color: #660000;
+    font-size: 19px;
+  }
+}

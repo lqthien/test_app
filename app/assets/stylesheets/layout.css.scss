@@ -4,11 +4,10 @@ body {
 
   #main-menu {
     position:absolute;
-    top: 6%;
+    top: 45px;
     right: 11%;
-    max-left: 800px;
     width: 50%;
-    height: 4%;
+    height: 30px;
 
     .main-menu-item {
       font-family: calibri;
@@ -16,29 +15,29 @@ body {
       font-size: 20px;
       width: auto;
       padding: 3px 20px 0px 20px;
-      height: 100%;
-      color: black;
+      height: 27px;
+      color: #29407C;
       float: right;
       background: white;
       border-radius: 8px 8px 0 0;
-      border-width: 1px 1px 0 1px;
-      border: #29407C solid;
+      border: 3px #29407C solid;
+      border-bottom: 0px;
       cursor: pointer;
 
       &:hover {
-        background: #29407C;
-        color: white;
+        background: #29407C !important;
+        color: white !important;
       }
     }
   }
-  
+
   #center {
     width: 80%;
     min-width: 800px;
-    min-height: 80%;
-    position: absolute;
-    top: 10%;
-    left: 10%;
+    min-height: 650px;
+    margin-top: 78px;
+    margin-left: 10%;
+    margin-bottom: 50px;
     border: 3px white solid;
     border-radius: 15px;
     box-shadow: 0 0 5em white;
@@ -60,4 +59,8 @@ body {
 
 .hide {
   display: none;
+}
+
+.align-center {
+  text-align: center;
 }

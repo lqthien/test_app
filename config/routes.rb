@@ -1,4 +1,6 @@
 TestApp::Application.routes.draw do
+  devise_for :users
+
   match ':controller(/:action(/:id))'
   controller :dashboard do
     post '/dashboard/switch' => :switch

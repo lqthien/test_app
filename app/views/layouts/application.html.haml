@@ -9,14 +9,9 @@
     #outer
       #header
       #main-menu
-        .main-menu-item{:onclick => "switchPane('blog');"}
-          Blog
-        .main-menu-item{:onclick => "switchPane('contact');"}
-          Contact
-        .main-menu-item{:onclick => "switchPane('profile');"}
-          Profile
-        .main-menu-item{:onclick => "switchPane('home');"}
-          Home
+        - Statistic::PANES.each do |pane|
+          .main-menu-item
+            #{ pane }
       #center
         .hide
           %img{:src => "/assets/loading.gif"}
@@ -36,5 +31,9 @@
   }
 
   $(document).ready(function() {
-
+    $(".main-menu-item").each(function(index, value) {
+      $(value).click(function() {
+        switchPane($(this).text().toLowerCase().trim());
+      });
+    });
   });

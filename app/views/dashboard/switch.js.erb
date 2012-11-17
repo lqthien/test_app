@@ -1,1 +1,3 @@
 $('#center').html("<%= escape_javascript(render params[:frame]) %>");
+$($('.main-menu-item')).css("background", "white").css("color", "#29407C");
+$($('.main-menu-item')[<%= Statistic::PANES.index(params[:frame].capitalize) %>]).css("background", "#29407C").css("color", "white");
