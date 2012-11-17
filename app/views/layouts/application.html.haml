@@ -18,12 +18,14 @@
         .main-menu-item{:onclick => "switchPane('home');"}
           Home
       #center
+        .hide
+          %img{:src => "/assets/loading.gif"}
         = yield
       #footer
 
 :javascript
   function switchPane(item) {
-    $('#center').html('<div><img src="/assets/loading.gif"/></div>')
+    $('#center').html('<img src="/assets/loading.gif"/>')
     $.ajax({
       url: "/dashboard/switch",
       type: "post",
