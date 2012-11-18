@@ -1,11 +1,5 @@
 $('#center').html("<%= escape_javascript(render params[:frame]) %>");
-$('#center *').each(function(index, value){
-  margin = $(value).css("margin-left");
-  $(value).css("margin-left", "100%").css('opacity', "0").animate({
-      'margin-left': margin,
-      opacity: 1
-    }, 700
-  );
-});
-$($('.main-menu-item')).css("background", "white").css("color", "#29407C");
-$($('.main-menu-item')[<%= Statistic::PANES.index(params[:frame].capitalize) %>]).css("background", "#29407C").css("color", "white");
+fadeInCenter();
+$($('.main-menu-item')).css("background", "white").css("color", "#606D0A");
+$('.main-menu-admin a').css("background", "white").css("color", "#606D0A");
+$($('.main-menu-item')[<%= Statistic::PANES.index(params[:frame].capitalize) %>]).css("background", "#606D0A").css("color", "white");

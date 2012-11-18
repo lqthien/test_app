@@ -1,0 +1,7 @@
+<% if @blog_post.id %>
+  $('#center').html("<%= escape_javascript(render "show") %>");
+  fadeInCenter();
+<% else %>
+  $('#center').html("<%= escape_javascript(render "new") %>");
+  alert("Can't create blog post");
+<% end %>

@@ -1,27 +1,26 @@
 .title_bar a.logout {
   float: right;
-  margin-right: 15px;
   text-decoration: none;
-  color: white;
+  color: #505050;
 
   &:hover {
-    color: #29407C;
+    color: white;
   }
 }
 
 .admin-button {
   min-width: 22%;
   min-height: 40px;
-  border: 3px #660000 solid;
+  border: 3px #6D9FA6 solid;
   border-radius: 5px;
   float: left;
-  margin: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
   padding-left: 10px;
   padding-right: 10px;
 
   &:hover {
-    background: #660000;
+    background: #6D9FA6;
 
     .admin-button-title {
       color: white;
@@ -38,7 +37,7 @@
     margin-top: 8px;
     margin-left: 15px;
     font-weight: bold;
-    color: #660000;
+    color: #6D9FA6;
     font-size: 19px;
   }
 }

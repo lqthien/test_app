@@ -1,0 +1,11 @@
+.title_bar
+  = @blog_post.title
+.author-date
+  &nbsp;
+  .author
+    Posted by #{ @blog_post.author.name }
+  .date
+    Posted on #{ @blog_post.date }
+.clear
+.blog-post-content
+  = raw(@blog_post.content)

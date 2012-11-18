@@ -1,0 +1,13 @@
+.blog-post-box
+  .blog-post-box-title{:onclick => "viewBlogPost(#{blog_post.id})"}
+    - if blog_post.title.length > 50
+      = blog_post.title[0..50] + " [...]"
+    - else
+      = blog_post.title
+  - if user_admin?
+    .delete-box
+      %img{:src => "assets/delete_icon.png", :onclick => "deleteBlogPost(#{ blog_post.id })"}
+  .blog-post-box-content
+    %center
+      Posted by #{ blog_post.author.name } on #{ blog_post.date }
+    = raw(blog_post.content)

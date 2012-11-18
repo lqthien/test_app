@@ -1,2 +1,5 @@
 .title_bar
   Blog
+
+- BlogPost.all.each do |blog_post|
+  = render :partial => "blog/blog_post_box", :locals => {:blog_post => blog_post}

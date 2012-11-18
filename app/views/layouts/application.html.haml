@@ -9,6 +9,9 @@
     #outer
       #header
       #main-menu
+        - if user_admin?
+          .main-menu-admin
+            = link_to "Admin", "/admin"
         - Statistic::PANES.each do |pane|
           .main-menu-item
             #{ pane }

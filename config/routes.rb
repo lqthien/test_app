@@ -1,9 +1,20 @@
 TestApp::Application.routes.draw do
+  mount Ckeditor::Engine => "/ckeditor"
   devise_for :users
 
   match ':controller(/:action(/:id))'
+
   controller :dashboard do
     post '/dashboard/switch' => :switch
+  end
+
+  controller :admin do
+  end
+
+  controller :blog do
+    post 'blog/new' => :new
+    post 'blog/show' => :show
+    post 'blog/delete' => :delete
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

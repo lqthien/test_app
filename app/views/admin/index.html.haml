@@ -2,4 +2,14 @@
   Welcome, Admin #{ current_user.name } #{ link_to('Logout', destroy_user_session_path, :method => :delete, :class => "logout") }
 
 .align-center
-  = render :partial => "admin_button", :locals => {:image => "new_blog_post.png", :title => "New blog post"}
+  = render :partial => "admin_button", :locals => {:image => "new_blog_post.png", :title => "New blog post", :func => "newBlogPost();"}
+
+:javascript
+  function newBlogPost() {
+    $('#center').html('<img src="/assets/loading.gif"/>')
+    $.ajax({
+      url: "/blog/new",
+      type: "post"
+    });
+  }
+  $('.main-menu-admin a').css("background", "#606D0A").css("color", "white");

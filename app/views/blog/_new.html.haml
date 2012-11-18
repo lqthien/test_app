@@ -1,0 +1,17 @@
+.title_bar
+  New blog post
+
+%center
+  %form{:action => "/blog/create", :method => "POST", "data-remote" => "true"}
+    %input{:type => "hidden", :name => "blog_post[date]", :value => "#{ Date.today.to_s }"}
+    %input{:type => "hidden", :name => "blog_post[created_by]", :value => "#{ current_user.id }"}
+    %table{:width => "80%", :class => "new-post-table"}
+      %tr
+        %td{:width => "10%"} Title
+        %td
+          %input{:id => "blog_post[title]", :name => "blog_post[title]", :type => "text", :value => "#{ @blog_post.title }"}
+      %tr
+        %td{:width => "10%"} Content
+        %td
+          = cktext_area_tag("blog_post[content]", "#{ @blog_post.content }", :input_html => {:class => "ckedit"}, :toolbar => 'Easy')
+    %input{:type => "submit", :name => "blog_post_submit", :value => "Post", :class => "blog-post-submit"}
