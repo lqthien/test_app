@@ -17,6 +17,7 @@
           %img{:src => "/assets/loading.gif"}
         = yield
       #footer
+        Page views: #{ Statistic.page_views }. Copyright @Master619, 2012
 
 :javascript
   function switchPane(item) {

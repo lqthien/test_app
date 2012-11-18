@@ -3,7 +3,11 @@ class Statistic < ActiveRecord::Base
 
   attr_accessible :name, :value
 
-  def self.page_view
+  def self.page_views
     where(:name => "Page view").first.value
+  end
+
+  def self.add_page_view
+    where(:name => "Page view").first.update_attributes(:value => (page_views.to_i + 1).to_s)
   end
 end
