@@ -1,8 +1,9 @@
 $('#center').html("<%= escape_javascript(render params[:frame]) %>");
 $('#center *').each(function(index, value){
   margin = $(value).css("margin-left");
-  $(value).css("margin-left", "100%").animate({
-      'margin-left': margin
+  $(value).css("margin-left", "100%").css('opacity', "0").animate({
+      'margin-left': margin,
+      opacity: 1
     }, 700
   );
 });
