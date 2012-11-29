@@ -1,0 +1,13 @@
+#chat-log {
+  width: 90%;
+  margin-left: 5%;
+  height: 350px;
+  overflow: auto;
+  border: 2px blue solid;
+  border-radius: 5px;
+
+  div {
+    padding-left: 3%;
+    text-align: left;
+  }
+}

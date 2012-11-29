@@ -11,6 +11,7 @@ gem 'heroku'
 gem 'haml-rails'
 gem 'devise'
 gem "ckeditor"
+gem "pusher", "~> 0.11.1"
 
 # Gems used only for assets and not required
 # in production environments by default.

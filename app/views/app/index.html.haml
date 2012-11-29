@@ -1,0 +1,27 @@
+.title_bar
+  Realtime app
+
+#chat-log
+
+%input{:type => "text", :placeholder => "Username", :class => "realtime-chat-user"}
+%input{:type => "text", :placeholder => "Message", :class => "realtime-chat-input"}
+%input{:type => "button", :value => "Send", :class => "realtime-chat-submit"}
+
+:javascript
+  var pusher = new Pusher('2d8d38de9d63a31169b9'); // Replace with your app key
+  var channel = pusher.subscribe('realtime-chat');
+  channel.bind('chat', function(data) {
+    $("#chat-log").append("<div><b>" + data.username + ": </b>" + data.message + "</div>");
+  });
+  $(".realtime-chat-submit").click(function() {
+    user = $(".realtime-chat-user").val();
+    mess = $(".realtime-chat-input").val();
+    $.ajax({
+      url: "/app/chat",
+      type: "POST",
+      data: {
+        user: user,
+        message: mess
+      }
+    });
+  });

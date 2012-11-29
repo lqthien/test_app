@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   protected
   def add_page_view
-    Statistic.add_page_view
+    if request.get?
+      Statistic.add_page_view
+    end
   end
 end
