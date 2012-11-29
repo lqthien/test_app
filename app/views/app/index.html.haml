@@ -9,7 +9,7 @@
 
 :javascript
   $(document).ready(function() {
-    var client = new Faye.Client('http://localhost:9292/faye');
+    var client = new Faye.Client('http://#{request.host}:9292/faye');
     var public_subscription = client.subscribe('/messages/public', function(data) {
       $("#chat-log").append("<div><b>" + data.username + ": </b>" + data.message + "</div>");
     });
