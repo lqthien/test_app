@@ -1,13 +1,74 @@
-#chat-log {
-  width: 90%;
-  margin-left: 5%;
-  height: 350px;
-  overflow: auto;
-  border: 2px blue solid;
-  border-radius: 5px;
+.board-area {
+  width: 100%;
+  min-height: 500px;
+  height: auto;
 
-  div {
-    padding-left: 3%;
-    text-align: left;
+  .board-outer {
+    width: 500px;
+    height: 500px;
+    margin-left: 20px;
+    border: 2px #3399FF solid;
+    border-radius: 5px;
+    padding: 22px;
+    float: left;
   }
+
+  .board-cell {
+    width: 45px;
+    height: 45px;
+    border: 1px black solid;
+    border-radius: 2px;
+    margin: 1px;
+    float: left;
+  }
+
+  .char1 {
+    background: url('/assets/chars.gif') no-repeat 0 0;
+    background-size: 250px 250px;
+  }
+
+  .board-control {
+    margin-left: 30px;
+    width: 450px;
+    min-height: 100px;
+    height: auto;
+    border: 2px #3399FF solid;
+    border-radius: 5px;
+    float: left;
+
+    .control-move-button {
+      width: 25px;
+      height: 25px;
+      border-radius: 3px;
+      border: 1px #3399FF solid;
+      background: white;
+    }
+  }
+}
+.chat-area {
+  #chat-log {
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    height: 350px;
+    overflow: auto;
+    border: 2px #3399FF solid;
+    border-radius: 5px;
+
+    div {
+      padding-left: 3%;
+      text-align: left;
+    }
+  }
+
+  input {
+    width: 250px;
+    border-radius: 3px;
+    border: 1px #3399FF solid;
+  }
+}
+
+.clear-both {
+  clear: both;
 }

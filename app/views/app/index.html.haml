@@ -1,26 +1,59 @@
 .title_bar
   Realtime app
 
-#chat-log
-
-%input{:type => "text", :placeholder => "Username", :class => "realtime-chat-user"}
-%input{:type => "text", :placeholder => "Message", :class => "realtime-chat-input"}
-%input{:type => "button", :value => "Send", :class => "realtime-chat-submit"}
+.board-area
+  .board-outer
+    - 100.times do |count|
+      - if count == 33
+        .board-cell.char1
+      - else
+        .board-cell
+  .board-control
+    %input{:type => "button", :value => "^", :class => "control-move-button", :onclick => "move('up')"}
+    %input{:type => "button", :value => "<", :class => "control-move-button", :onclick => "move('left')"}
+    %input{:type => "button", :value => ">", :class => "control-move-button", :onclick => "move('right')"}
+    %input{:type => "button", :value => "v", :class => "control-move-button", :onclick => "move('down')"}
+.clear-both
+.chat-area
+  #chat-log
+  %input{:type => "text", :placeholder => "Username", :class => "realtime-chat-user"}
+  %input{:type => "text", :placeholder => "Message", :class => "realtime-chat-input"}
+  %input{:type => "button", :value => "Send", :class => "realtime-chat-submit"}
 
 :javascript
-  $(document).ready(function() {
-    var client = new Faye.Client('http://#{request.host}:9292/faye');
-    var public_subscription = client.subscribe('/messages/public', function(data) {
+  var client, public_subscription;
+  function sendMessage(event, data) {
+    client.publish(event, data);
+  }
+  function initClient() {
+    client = new Faye.Client('http://#{request.host}:9292/faye');
+  }
+  function subscribe(channel, func) {
+    public_subscription = client.subscribe(channel, func);
+  }
+  function handleData(event, data) {
+    if(event == "chat") {
       $("#chat-log").append("<div><b>" + data.username + ": </b>" + data.message + "</div>");
+    }
+  }
+  $(document).ready(function() {
+    initClient();
+    subscribe('/messages/public', function(data) {
+      handleData(data.event, data)
     });
     $(".realtime-chat-submit").click(function() {
       user = $(".realtime-chat-user").val();
       mess = $(".realtime-chat-input").val();
-      client.publish('/messages/public', {
+      sendMessage('/messages/public', {
+        event: "chat",
         username: user,
         message: mess
-      });
+      })
     });
+    $(document).keypress(function(event) {
+      if(handleKey(event))
+        event.preventDefault();
+    })
     //var pusher = new Pusher('2d8d38de9d63a31169b9');
     //pusher.connection.bind('connected', function() {
     //  $('.realtime-chat-user, .realtime-chat-submit, .realtime-chat-input').removeAttr('disabled');
