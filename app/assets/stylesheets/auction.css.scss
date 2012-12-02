@@ -17,15 +17,32 @@
     margin-left: 20px;
 
     #auction_description {
-      width: 500px;
+      width: 100%;
     }
 
-    #rule-add, #item-add {
+    #rule-add, #item-add, #item-generate-code, #item-same-start {
       cursor: pointer;
+      margin-top: 10px;
 
       &:hover {
         color: red;
       }
+    }
+
+    .rule-delete, .item-delete {
+      cursor: pointer;
+      text-decoration: none;
+      color: #5C0D11;
+      display: inline;
+      margin-left: 30px;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+
+    .item_code {
+      width: 60px;
     }
   }
 

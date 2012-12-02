@@ -15,7 +15,7 @@ class CreateAuctionAndAuctionItemAndAuctionBid < ActiveRecord::Migration
       t.integer  "bid_from"
       t.integer  "bid_to"
       t.integer  "bid_step"
-      t.boolean  "percent"
+      t.boolean  "percent", :default => :false
       t.datetime "created_at"
       t.datetime "updated_at"
     end

@@ -4,4 +4,11 @@ class AuctionItem < ActiveRecord::Base
 
   belongs_to :auction
   has_many :auction_bids, :dependent => :destroy
+
+  before_update :create_bid
+
+  private
+  def create_bid
+    self.auction_bids.create(:bidder => self.bidder, :amount => self.current_bid)
+  end
 end

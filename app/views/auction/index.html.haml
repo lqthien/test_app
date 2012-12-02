@@ -1,43 +1,93 @@
 #auction-caption
   Auction generator
-
-%table#auction-create-table
-  %tr
-    %td Auction name:
-    %td
-      %input{:name => "auction[name]", :id => "auction_name", :type => "text"}
-  %tr
-    %td Owner:
-    %td
-      %input{:name => "auction[owner]", :id => "auction_owner", :type => "text", :value => params[:hv_user]}
-  %tr
-    %td Description:
-    %td
-      %input{:name => "auction[description]", :id => "auction_description", :type => "text"}
-  %tr
-    %td Password:
-    %td
-      %input{:name => "auction[password]", :id => "auction_password", :type => "text"}
-      * This will be used when you want to edit the auction later
-  %tr
-    %td Expire at:
-    %td
-      %input{:name => "auction[expire_at]", :id => "auction_expire_at", :type => "text"}
-      * Click for calendar
-  %tr
-    %td Rules:
-    %td
-      #rule-add
-        + Add new rule
-  %tr
-    %td Items:
-    %td
-      #item-add
-        + Add new item
+%form{:action => "/auction/create", :id => "auction_form", :method => :post}
+  %table#auction-create-table
+    %tr
+      %td Auction name:
+      %td
+        %input{:name => "auction[name]", :id => "auction_name", :type => "text"}
+    %tr
+      %td Owner:
+      %td
+        %input{:name => "auction[owner]", :id => "auction_owner", :type => "text", :value => params[:hv_user]}
+    %tr
+      %td Description:
+      %td
+        %input{:name => "auction[description]", :id => "auction_description", :type => "text"}
+    %tr
+      %td Password:
+      %td
+        %input{:name => "auction[password]", :id => "auction_password", :type => "text"}
+        * This will be used when you want to edit the auction later
+    %tr
+      %td Expire at:
+      %td
+        %input{:name => "auction[expire_at]", :id => "auction_expire_at", :type => "text"}
+        * Click for calendar
+    %tr
+      %td Rules:
+      %td
+        .hidden
+          .auction-rule
+            From
+            %input{:type => "text", :class => "bid_from"}
+            To
+            %input{:type => "text", :class => "bid_to", :placeholder => "0 = infinite"}
+            #{':'}
+            %input{:type => "text", :class => "bid_step", :placeholder => "increment (ex: 10000)"}
+            %input{:type => "checkbox", :class => "bid_percent"}
+            percent
+            .rule-delete{:onclick => "deleteRule(this)"}
+              Delete
+        #rule-add
+          + Add new rule
+    %tr
+      %td Items:
+      %td
+        .hidden
+          .auction-item
+            Code
+            %input{:type => "text", :class => "item_code"}
+            Name
+            %input{:type => "text", :class => "item_name"}
+            Link
+            %input{:type => "text", :class => "item_link"}
+            Start bid
+            %input{:type => "text", :class => "item_start"}
+            .item-delete{:onclick => "deleteItem(this)"}
+              Delete
+        #item-add
+          + Add new item
+        #item-generate-code
+          >> Generate codes
+        #item-same-start
+          >> Same start bid for all items
 
 %input{:id => "auction-create-button", :type => "button", :value => "Create auction"}
 
 :javascript
+  var ruleIndex = 0;
+  var itemIndex = 0;
   $(document).ready(function() {
-    $("#auction_expire_at").datepicker();
+    $("#auction_expire_at").datetimepicker();
+    $("#rule-add").click(function() {
+      addAuctionRule();
+    });
+    $("#item-generate-code").click(function() {
+      generateItemCodes();
+    });
+    $("#item-same-start").click(function() {
+      sameItemStart();
+    });
+    $("#item-add").click(function() {
+      addAuctionItem();
+    });
+    $("#auction-create-button").click(function() {
+      if(checkValidRules() && checkValidItems()) {
+        $("#auction_form").submit();
+      }
+    });
+    $("#rule-add").click();
+    $(".auction-rule").eq(1).find(".bid_from").val(0);
+    $("#item-add").click();
   });
