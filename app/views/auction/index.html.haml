@@ -1,0 +1,43 @@
+#auction-caption
+  Auction generator
+
+%table#auction-create-table
+  %tr
+    %td Auction name:
+    %td
+      %input{:name => "auction[name]", :id => "auction_name", :type => "text"}
+  %tr
+    %td Owner:
+    %td
+      %input{:name => "auction[owner]", :id => "auction_owner", :type => "text", :value => params[:hv_user]}
+  %tr
+    %td Description:
+    %td
+      %input{:name => "auction[description]", :id => "auction_description", :type => "text"}
+  %tr
+    %td Password:
+    %td
+      %input{:name => "auction[password]", :id => "auction_password", :type => "text"}
+      * This will be used when you want to edit the auction later
+  %tr
+    %td Expire at:
+    %td
+      %input{:name => "auction[expire_at]", :id => "auction_expire_at", :type => "text"}
+      * Click for calendar
+  %tr
+    %td Rules:
+    %td
+      #rule-add
+        + Add new rule
+  %tr
+    %td Items:
+    %td
+      #item-add
+        + Add new item
+
+%input{:id => "auction-create-button", :type => "button", :value => "Create auction"}
+
+:javascript
+  $(document).ready(function() {
+    $("#auction_expire_at").datepicker();
+  });

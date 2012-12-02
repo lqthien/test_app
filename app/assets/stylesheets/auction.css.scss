@@ -1,0 +1,43 @@
+#auction-body {
+  width: 100%;
+  min-height: 700px;
+  height: auto;
+  background: #E3E0D1;
+  color: #5C0D11;
+
+  #auction-caption {
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px #5C0D11 solid;
+    border-radius: 5px;
+  }
+
+  #auction-create-table {
+    margin-left: 20px;
+
+    #auction_description {
+      width: 500px;
+    }
+
+    #rule-add, #item-add {
+      cursor: pointer;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  #auction-create-button {
+    margin-left: 20px;
+    border: 1px #5C0D11 solid;
+    border-radius: 3px;
+    background: #E3E0D1;
+
+    &:hover {
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}

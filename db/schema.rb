@@ -11,7 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117163704) do
+ActiveRecord::Schema.define(:version => 20121202032109) do
+
+  create_table "auction_bids", :force => true do |t|
+    t.integer  "auction_item_id"
+    t.string   "bidder"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "auction_items", :force => true do |t|
+    t.integer  "auction_id"
+    t.string   "name"
+    t.string   "code"
+    t.string   "link"
+    t.integer  "start_bid"
+    t.integer  "current_bid"
+    t.string   "bidder"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "auction_rules", :force => true do |t|
+    t.integer  "auction_id"
+    t.integer  "bid_from"
+    t.integer  "bid_to"
+    t.integer  "bid_step"
+    t.boolean  "percent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "auctions", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "owner"
+    t.string   "password"
+    t.datetime "expire_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
