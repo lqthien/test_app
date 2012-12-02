@@ -131,3 +131,26 @@ function sameItemStart() {
     $(value).find(".item_start").val(start);
   });
 }
+
+function placeBid(element, id) {
+  $.ajax({
+    url: "/auction/bid",
+    type: "POST",
+    data: {
+      item_id: id,
+      amount: $(element).prev().val()
+    }
+  });
+}
+
+function deleteAuction(id) {
+  pass = window.prompt("Enter the password of the auction");
+  $.ajax({
+    url: "/auction/delete",
+    type: "POST",
+    data: {
+      id: id,
+      pass: pass
+    }
+  });
+}

@@ -7,11 +7,17 @@ class AuctionItem < ActiveRecord::Base
 
   before_update :create_bid
 
-  def next_valid_bid
+  def next_valid_bid(old_bid = nil)
     rules = self.auction.auction_rules
+    bid = old_bid || self.current_bid
     rules.each do |rule|
-      if (rule.bid_from..rule.bid_to) === self.current_bid || rule.to == 0
-        self.current_bid + rule.bid_step
+      if (rule.bid_from..rule.bid_to) === bid || rule.bid_to == 0
+        if bid.nil?
+          return self.start_bid
+        else
+          return rule.percent? ? (bid * (100 + rule.bid_step) / 100.0).ceil
+                               : bid + rule.bid_step
+        end
       else
         0
       end
@@ -20,7 +26,6 @@ class AuctionItem < ActiveRecord::Base
 
   private
   def create_bid
-    return false if self.current_bid <= self.next_valid_bid
-    self.auction_bids.create(:bidder => self.bidder, :amount => self.current_bid)
+    self.auction_bids.create(:bidder => self.bidder, :amount => self.current_bid) unless self.bidder.nil?
   end
 end

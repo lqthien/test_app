@@ -16,17 +16,31 @@
     %tr
       %td Expire in:
       %td #{distance_of_time_in_words(DateTime.now, @auction.expire_at)}
+    %tr
+      %td Delete:
+      %td
+        #delete-auction{:onclick => "deleteAuction(#{@auction.id})"}
+          Delete this auction
     %tr#rules
       %td Rules:
       %td
         - @auction.auction_rules.each do |rule|
           .auction-rule-show
-            From #{rule.bid_from} credits to #{rule.bid_to == 0 ? "higher" : rule.bid_to} credits: #{rule.bid_step} #{rule.percent? ? "%" : "credits"}
+            From #{rule.bid_from}
+            credits to #{rule.bid_to == 0 ? "higher" : rule.bid_to}
+            credits: #{rule.bid_step}
+            #{rule.percent? ? "%" : "credits"}
     %tr#items
       %td Items:
       %td
-        - @auction.auction_items.each do |item|
-          .auction-item-show
-            #{item.code}: #{link_to(item.name, item.link)}. Start: #{item.start_bid} credits. Current: <span style="color: red">#{item.current_bid || 0}</span>. Bidder: <span style="color: red">#{item.bidder || "Not yet"}</span>
+        - @auction.auction_items.order("created_at asc").each do |item|
+          %div{:id => "itemid#{item.id}", :class => "auction-item-show"}
+            #{item.code}: #{link_to(item.name, item.link)}.
+            Start: #{item.start_bid} credits.
+            Current: <span style="color: red">#{item.current_bid || 0}</span>.
+            Bidder: <span style="color: red">#{item.bidder || "Not yet"}</span>
+            %input{:class => "item-bid", :value => "#{item.next_valid_bid}"}
+            %input{:class => "item-bid-submit", :value => "Place bid", :onclick => "placeBid(this, #{item.id})", :type => "button"}
+
 - else
   You need to click from the e-hentai forums

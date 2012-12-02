@@ -1,0 +1,8 @@
+<% if @valid %>
+  item = $("#itemid<%= params[:item_id] %>")[0];
+  $(item).find("span")[0].textContent = '<%= params[:amount] %>';
+  $(item).find("span")[1].textContent = '<%= session[:hv_user] %>';
+  $(item).find("input")[0].value = '<%= @item.next_valid_bid %>';
+<% else %>
+  alert("Your bid is not valid. Someone may have bid just before you. Reload the page may help.")
+<% end %>
