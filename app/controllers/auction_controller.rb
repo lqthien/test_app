@@ -14,6 +14,9 @@ class AuctionController < ApplicationController
   end
 
   def show
+    @auth = false
+    @auth = true if (request.referer.present? && request.referer.include("forums.e-hentai.org") && (params[:hv_user].present? || session[:hv_user].present?)) || request.host == "localhost"
+    session[:hv_user] = params[:hv_user] unless params[:hv_user].nil? || session[:hv_user].present?
     redirect_to "/auction" if(@auction = Auction.find_by_id(params[:id])).nil?
   end
 end
