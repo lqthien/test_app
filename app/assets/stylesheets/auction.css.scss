@@ -16,6 +16,21 @@
   #auction-create-table {
     margin-left: 20px;
 
+    .auction-item-show {
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #5C0D11;
+      }
+    }
+
+    tr#rules, tr#items {
+      td {
+        padding-top: 10px;
+        padding-bottom: 30px;
+      }
+    }
+
     #auction_description {
       width: 100%;
     }
