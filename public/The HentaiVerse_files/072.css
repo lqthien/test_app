@@ -1,0 +1,180 @@
+@font-face {
+  font-family: HentaiVerse;
+  src: url(hentaiverse.ttf);
+}
+
+/* misc */
+body{font-size:8pt;font-family:arial,helvetica,sans-serif;color:#5C0D11;background:#E3E0D1;padding:2px;margin:0px}
+a:link{color:#5C0D11} 
+a:visited{color:#5C0D11} 
+a:hover{color:#9B4E03} 
+a:active{color:#5C0D11} 
+a.noul:link{text-decoration:none}
+a.noul:visited{text-decoration:none}
+a.noul:hover{text-decoration:none}
+a.noul:active{text-decoration:none}
+.nopm{padding:0;margin:0}
+.stuffbox{background:#EDEBDF;border:1px solid #5C0D12}
+p{padding:3px 1px;margin:0}
+.emsg {color:#FF5555;font-weight:bold}
+
+/* common screens */
+div.cw{border:0;padding:0;margin:0}
+div.csp{width:980px;height:702px}
+div.cpu{visibility:hidden;position:absolute;top:0px;left:0px;border:1px solid #5C0D11;background:#EDEBDF;width:190px;height:120px;opacity:0.9;text-align:left;padding:3px;z-index:5}
+div.clb{float:left;width:150px;height:700px}
+div.cnb{float:left;width:820px;height:23px;padding-top:3px;border-bottom:1px solid #5C0D11;border-left:1px solid #5C0D11}
+div.cnbd{float:left;width:150px;height:19px;text-align:left}
+div.cnbp{width:150px}
+div.cnbc{text-align:left;position:absolute;visibility:hidden;background:#EDEBDF;width:150px;z-index:99;opacity:0.9;border:1px solid #5C0D11;border-top:0;margin-top:1px}
+div.cnbs{height:12px;cursor:pointer;padding:5px 3px;background:#EDEBDF}
+div.cnbs:hover{height:12px;cursor:pointer;padding:5px 3px;background:#F2EFDF}
+div.cmp{float:left;width:820px;height:670px;padding:2px 0px;overflow:hidden}
+div.cmb1{position:absolute;width:550px;height:150px;top:200px;left:340px;background:#F2EFDF;opacity:0.95;border:1px solid #5C0D12;visibility:visible;z-index:5}
+div.cmb2{border-bottom:1px dotted #5C0D12;width:548px;height:17px}
+div.cmb3{float:left;padding:3px 5px;height:10px;width:500px}
+div.cmb4{float:right;padding:3px;height:10px;width:15px}
+div.cmb5{overflow:auto;height:128px;width:548px}
+div.cmb6{padding:5px 0px;height:10px;width:530px;clear:both;margin:auto}
+div.cmo1{float:right;padding-top:4px;width:50px}
+div.cmo2{float:left;width:30px}
+div.cmo3{float:left;width:16px}
+img.cmoi{border:0;opacity:1.0;padding:0px 4px}
+div.cbl{width:145px;margin:3px 0px 0px 4px}
+table.cit{text-align:right;padding-top:10px;width:145px}
+div.cwbt{position:absolute;top:3px;left:2px;z-index:9}
+div.cwbt1{margin:3px auto 0px 0px;text-align:center;width:120px}
+div.cwbt2{margin:3px auto 0px 36px;text-align:center;width:50px}
+img.cwb2{border:0;padding:0;margin:0;position:absolute;left:0px;top:0px;z-index:2;height:24px}
+img.cwb3{border:0;padding:0;margin:0;position:absolute;left:0px;top:0px;z-index:5}
+div.cwbdv{width:120px;height:24px;position:relative;clear:both;margin-left:15px;background-color:black}
+div.chbd{width:120px;height:12px;position:relative;background-color:black}
+img.chb2{border:0;padding:0;margin:0;position:absolute;left:0px;top:0px;z-index:2;height:12px}
+img.chb3{border:0;padding:0;margin:0;position:absolute;left:0px;top:0px;z-index:5}
+div.csps{height:19px;width:99%;cursor:pointer}
+div.cspp{clear:both;overflow:hidden}
+div.cfb{cursor:pointer;float:left;height:20px;padding:8px 1px 1px 1px;border-top:1px solid #EDEBDF;border-bottom:1px solid #5C0D11}
+div.cfb:hover{padding:8px 0px 1px 0px;background:#F2EFDF;border:1px solid #9B4E03}
+div.cfbs{cursor:pointer;float:left;height:20px;padding:8px 1px 1px 1px;border-top:1px solid #EDEBDF;border:1px solid #5C0D11;border-bottom:1px solid #EDEBDF}
+
+/* equipment */
+td.eqhp{padding-top:3px;font-weight:bold;font-style:italic}
+td.eqam{font-weight:bold;font-style:italic;padding-top:2px}
+table.eqat{width:316px;margin:-1px auto}
+td.eqak{width:56px}
+td.eqav1{width:51px;text-align:right;font-weight:bold}
+td.eqav2{width:59px;text-align:right;font-weight:bold}
+td.eqsv1{width:70px;text-align:right;font-weight:bold}
+td.eqsv2{font-weight:bold;text-align:left;width:13px}
+div.eqp{clear:both;position:relative}
+div.eqpp{clear:both;padding-top:7px;position:relative}
+div.eqdp{cursor:pointer;padding:1px 5px 5px 18px;float:left}
+div.eqde{cursor:pointer;clear:both;width:550px;margin:auto}
+div.eqspd{width:550px;height:20px;margin:2px auto;padding:8px 0px;clear:both;text-align:left;position:relative}
+div.eqspt{clear:both;width:550px;margin:auto}
+div.eqsp1{clear:both;padding:10px 0px 0px 5px}
+div.eqsp2{clear:both;padding:12px 0px 0px 5px}
+div.eqsp3{clear:both;padding:5px 0px 0px 15px}
+div.eqsp4{clear:both;padding:30px 0px 0px 5px}
+div.eqm{width:810px;height:650px;text-align:center;padding-top:4px;position:relative}
+div.eql{width:604px;height:648px;text-align:center;float:left;position:relative}
+
+/* battle */
+div.bttp{width:398px;height:418px;clear:both;overflow:auto;overflow:auto}
+div.btc{margin:20px auto 0px;height:15px}
+div.btcp{position:absolute;top:30px;left:200px;width:360px;height:150px;margin:2px 0px 0px 15px;padding:1px;border:2px ridge #5C0D12;background:#F2EFDF;opacity:0.95;z-index:9}
+div.btcd{margin:20px auto 0px}
+img.btci{cursor:pointer;border:0}
+img.btam{margin:0px 0px 0px 7px}
+img.btap{position:absolute;top:-2px}
+td.bts{width:195px;padding-left:0px;padding-top:3px}
+td.btsp{width:195px;padding-left:0px;padding-top:9px}
+div.btsd{float:left;cursor:pointer;padding-left:15px}
+td.bti{width:370px;padding-left:5px}
+div.bti1{width:360px;height:22px;margin:4px auto;padding:1px;clear:both;text-align:left;position:relative}
+div.bti2{float:left;height:15px;width:24px;padding:7px 2px 2px 2px;text-align:right}
+div.bti3{float:left;height:15px;width:300px;padding:7px 2px 2px 10px}
+img.btii{cursor:pointer;padding-left:15px}
+div.btm1{width:360px;height:50px;margin:2px auto;padding:1px;clear:both;text-align:left;position:relative}
+div.btm2{float:left;height:47px;width:35px;padding:2px;text-align:center}
+div.btm3{float:left;height:15px;width:280px;padding:1px 0px 0px 3px}
+div.btm4{float:left;height:36px;width:122px;position:relative;margin:-1px 0px 0px 0px}
+div.btm5{float:left;height:12px;width:120px}
+div.btm6{float:left;height:36px;width:210px;position:absolute;top:16px;left:164px;background-image:url(http://ehgt.org/v/battle/activemobstatuseffects.png);background-repeat:no-repeat;padding:2px 0px 0px 1px}
+img.btmi{margin:2px 3px 2px 2px}
+div.btq{width:385px;height:34px;clear:both;padding-left:13px}
+div.btqs{float:left;text-align:center;width:32px;height:36px;margin:0px;padding:0px 5px 2px 0px;position:relative}
+div.btqss{float:left;text-align:center;width:32px;height:36px;margin:0px;padding:0px 5px 2px 0px;position:relative;cursor:pointer}
+img.btqi1{border:0px;margin:0px;padding:0px;position:absolute;left:3px;top:4px;z-index:3}
+img.btqi2{border:0px;margin:0px;padding:0px;position:absolute;left:-5px;top:-4px;z-index:3}
+div.btt{width:800px;height:36px;margin:auto;text-align:center;padding-top:4px;position:relative}
+div.btl{width:400px;height:610px;float:left;position:relative;z-index:1}
+div.btp{width:394px;height:50px;margin:4px 0px;clear:both;border:2px ridge #5C0D12}
+div.btps{width:792px;height:36px;text-align:left;margin:2px 4px 0px;padding-top:2px;float:left;background-image:url(http://ehgt.org/v/battle/ase.png);background-repeat:no-repeat}
+div.btpa{width:392px;height:17px;float:left;text-align:center;margin:10px 0px}
+div.btpa1{width:48px;text-align:center;float:left;position:relative}
+div.btpa2{width:96px;text-align:center;float:left;position:relative}
+div.btpa3{width:0px;text-align:center;float:left;position:relative}
+img.btpt1{opacity:0;position:absolute;top:2px;left:10px}
+img.btpt2{opacity:0;position:absolute;top:2px;left:75px}
+div.btip{width:398px;height:75px;clear:both;text-align:justify;overflow:auto;border-bottom:2px ridge #5C0D12;padding-top:5px}
+div.btip2{padding-bottom:3px}
+div.btlp{font-family:'Verdana','sans-serif'}
+div.btpm1{width:250px;margin:auto;margin-top:3px}
+div.btpm2{float:left}
+div.btpm3{float:right}
+table.btp{clear:both;text-align:left}
+div.btmp{width:400px;height:610px;float:left;margin-left:15px;overflow:auto;position:relative;padding-top:2px;z-index:1}
+img#ta_spellflash_1{opacity:0;position:absolute;top:2px;left:10px}
+img#ta_spellflash_2{opacity:0;position:absolute;top:2px;left:75px}
+img#ta_monster_1{opacity:1.0;visibility:hidden;position:absolute;top:2px;left:10px}
+img#ta_monster_2{opacity:1.0;visibility:hidden;position:absolute;top:2px;left:75px}
+td.t1{text-align:right;vertical-align:top}
+td.t2{text-align:right;vertical-align:top}
+td.t3{text-align:left}
+td.t3b{text-align:left;font-weight:bold}
+
+/* monster lab */
+
+div.ms{border:2px ridge #5C0D12; width:740px; height:26px; margin:2px auto}
+div.msa{cursor:pointer}
+div.msa:hover{background:#F2EFDF}
+
+/* fonts and font colors */
+div.f10lb{float:left;margin:0;padding:0;height:10px;background-color:transparent;background-image:url(http://ehgt.org/v/font/10b.png)}
+div.f10lg{float:left;margin:0;padding:0;height:10px;background-color:transparent;background-image:url(http://ehgt.org/v/font/10g.png)}
+div.f10lr{float:left;margin:0;padding:0;height:10px;background-color:transparent;background-image:url(http://ehgt.org/v/font/10r.png)}
+div.f10ly{float:left;margin:0;padding:0;height:10px;background-color:transparent;background-image:url(http://ehgt.org/v/font/10y.png)}
+div.f10la{float:left;margin:0;padding:0;height:10px;background-color:transparent;background-image:url(http://ehgt.org/v/font/10a.png)}
+div.f10rb{float:right;margin:0;padding:0;height:10px;background-color:transparent;background-image:url(http://ehgt.org/v/font/10b.png)}
+div.f10rg{float:right;margin:0;padding:0;height:10px;background-color:transparent;background-image:url(http://ehgt.org/v/font/10g.png)}
+div.f10rr{float:right;margin:0;padding:0;height:10px;background-color:transparent;background-image:url(http://ehgt.org/v/font/10r.png)}
+div.f10ry{float:right;margin:0;padding:0;height:10px;background-color:transparent;background-image:url(http://ehgt.org/v/font/10y.png)}
+div.f10ra{float:right;margin:0;padding:0;height:10px;background-color:transparent;background-image:url(http://ehgt.org/v/font/10a.png)}
+div.f12lb{float:left;margin:0;padding:0;height:12px;background-color:transparent;background-image:url(http://ehgt.org/v/font/12b.png)}
+div.f12lg{float:left;margin:0;padding:0;height:12px;background-color:transparent;background-image:url(http://ehgt.org/v/font/12g.png)}
+div.f12lr{float:left;margin:0;padding:0;height:12px;background-color:transparent;background-image:url(http://ehgt.org/v/font/12r.png)}
+div.f12ly{float:left;margin:0;padding:0;height:12px;background-color:transparent;background-image:url(http://ehgt.org/v/font/12y.png)}
+div.f12la{float:left;margin:0;padding:0;height:12px;background-color:transparent;background-image:url(http://ehgt.org/v/font/12a.png)}
+div.f12rb{float:right;margin:0;padding:0;height:12px;background-color:transparent;background-image:url(http://ehgt.org/v/font/12b.png)}
+div.f12rg{float:right;margin:0;padding:0;height:12px;background-color:transparent;background-image:url(http://ehgt.org/v/font/12g.png)}
+div.f12rr{float:right;margin:0;padding:0;height:12px;background-color:transparent;background-image:url(http://ehgt.org/v/font/12r.png)}
+div.f12ry{float:right;margin:0;padding:0;height:12px;background-color:transparent;background-image:url(http://ehgt.org/v/font/12y.png)}
+div.f12ra{float:right;margin:0;padding:0;height:12px;background-color:transparent;background-image:url(http://ehgt.org/v/font/12a.png)}
+div.fd10{position:relative;display:inline;height:10px;margin:0;padding:0}
+div.fd12{position:relative;display:inline;height:12px;margin:0;padding:0}
+
+/* shorthands */
+
+
+/* input */
+.stdbtn{font-size:8pt;color:#5C0D11;background:#EDEADA;border:2px outset #5C0D11;height:21px;margin:4px 1px 0px 1px;padding:0px 4px 1px 4px}
+.stdbtn:hover{color:#9B4E03;background:#F2EFDF;border:2px outset #9B4E03}
+.stdbtn:focus{color:#9B4E03;background:#F2EFDF}
+.stdbtn:disabled{color:#C2A8A4;background:#EDEADA}
+.stdbtn_clicked{font-size:8pt;color:#9B4E03;background:#F2EFDF;border:2px inset #9B4E03;height:21px;margin:4px 1px 0px 1px;padding:0px 3px 1px 5px}
+.stdinput{font-size:8pt;color:#5C0D11;background:#EDEADA;border:1px solid #5C0D11;margin:4px 1px 0px 1px;padding:2px 3px 2px 3px}
+.stdinput:hover{color:#9B4E03;background:#F2EFDF}
+.stdinput:focus{color:#9B4E03;background:#F2EFDF}
+.stdinput:disabled{color:#C2A8A4;background:#EDEADA}
+
